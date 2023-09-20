@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = ({ searchInput, searchByTag }) => {
     return (
         <header className="flex items-start md:items-center justify-between py-3 px-5 md:px-10 gap-10 mb-5 w-full">
@@ -12,7 +14,7 @@ const Header = ({ searchInput, searchByTag }) => {
                 onChange={(e) => searchByTag(e.target.value)}
             />
 
-            <button>Sign In</button>
+            <Link to="/login">Sign In</Link>
         </header>
     );
 };

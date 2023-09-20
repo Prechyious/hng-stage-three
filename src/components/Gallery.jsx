@@ -9,10 +9,11 @@ const Gallery = () => {
     const [searchInput, setSearchInput] = useState("");
 
     const [filtered, setFiltered] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const res = Data.map((image) => image);
+        setIsLoading(true);
         setImages(res);
         setFiltered(res);
         setIsLoading(false);
@@ -36,16 +37,14 @@ const Gallery = () => {
         setIsLoading(false);
     };
 
-    if (isLoading) {
-        return (
-            <div className="flex items-center justify-center h-[100dvh]">
-                <ScaleLoader color="#333" height={30} />
-            </div>
-        );
-    }
     return (
         <>
             <Header searchByTag={searchByTag} searchInput={searchInput} />
+            {isLoading && (
+                <div className="flex items-center justify-center h-[60dvh]">
+                    <ScaleLoader color="#333" height={30} />
+                </div>
+            )}
             <ImageDisplay filtered={filtered} />
         </>
     );
