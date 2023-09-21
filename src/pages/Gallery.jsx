@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ScaleLoader } from "react-spinners";
-import Header from "./Header";
-import ImageDisplay from "./ImageDisplay";
+import Header from "../components/Header";
+import ImageDisplay from "../components/ImageDisplay";
 import { Data } from "../data/imagesData";
 
 const Gallery = ({ token }) => {
@@ -46,7 +46,7 @@ const Gallery = ({ token }) => {
     };
 
     return (
-        <>
+        <div className="bg-neutral-100">
             <Header
                 searchByTag={searchByTag}
                 searchInput={searchInput}
@@ -69,7 +69,7 @@ const Gallery = ({ token }) => {
                 setFiltered={setFiltered}
                 token={token}
             />
-        </>
+        </div>
     );
 };
 
