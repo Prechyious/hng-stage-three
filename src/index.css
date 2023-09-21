@@ -7,3 +7,7 @@
 html {
     font-family: "Noto Sans", sans-serif;
 }
+
+body {
+    @apply overflow-x-hidden;
+}

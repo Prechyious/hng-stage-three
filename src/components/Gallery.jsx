@@ -4,12 +4,13 @@ import Header from "./Header";
 import ImageDisplay from "./ImageDisplay";
 import { Data } from "../data/imagesData";
 
-const Gallery = () => {
+const Gallery = ({ token }) => {
     const [images, setImages] = useState([]);
     const [searchInput, setSearchInput] = useState("");
 
     const [filtered, setFiltered] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
 
     useEffect(() => {
         const res = Data.map((image) => image);
@@ -31,21 +32,43 @@ const Gallery = () => {
                     .includes(searchValue.toLowerCase());
             });
             setFiltered(filteredResult);
+
+            if (filteredResult.length === 0) {
+                setShowErrorMessage(true);
+            } else {
+                setShowErrorMessage(false);
+            }
         } else {
             setFiltered(images);
+            setShowErrorMessage(false);
         }
         setIsLoading(false);
     };
 
     return (
         <>
-            <Header searchByTag={searchByTag} searchInput={searchInput} />
+            <Header
+                searchByTag={searchByTag}
+                searchInput={searchInput}
+                token={token}
+            />
             {isLoading && (
-                <div className="flex items-center justify-center h-[60dvh]">
+                <div className="flex items-center justify-center h-[60dvh] md:h-[80dvh]">
                     <ScaleLoader color="#333" height={30} />
                 </div>
             )}
-            <ImageDisplay filtered={filtered} />
+
+            {showErrorMessage && (
+                <div className="flex items-center justify-center text-red-500">
+                    No results found.
+                </div>
+            )}
+
+            <ImageDisplay
+                filtered={filtered}
+                setFiltered={setFiltered}
+                token={token}
+            />
         </>
     );
 };

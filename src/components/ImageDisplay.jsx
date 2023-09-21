@@ -1,23 +1,43 @@
-import { useState } from "react";
-import { Data } from "../data/imagesData";
+import { useRef } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+const ImageDisplay = ({ filtered, setFiltered, token }) => {
+    const dragImg = useRef(0);
+    const draggedOverImg = useRef(0);
 
-const ImageDisplay = ({ filtered }) => {
+    const handleSort = () => {
+        const filteredClone = [...filtered];
+        const temp = filteredClone[dragImg.current];
+
+        filteredClone[dragImg.current] = filteredClone[draggedOverImg.current];
+        filteredClone[draggedOverImg.current] = temp;
+        setFiltered(filteredClone);
+    };
     return (
-        <main className="grid place-items-center gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-5 md:px-10 mb-10">
-            {filtered.map(({ image, category, id }) => {
+        <main className="grid place-items-center gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-5 md:px-10 mb-10">
+            {filtered.map((image, index) => {
                 return (
                     <div
-                        key={id}
-                        className="relative h-[420px] w-[300px] shadow-lg hover:shadow-neutral-500 rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
+                        key={image.id}
+                        className={`relative h-[420px] w-[300px] shadow-lg hover:shadow-neutral-500 rounded-lg overflow-hidden transition-all duration-500 ease-in-out ${
+                            token && "cursor-move"
+                        }`}
+                        draggable={!!token}
+                        onDragStart={
+                            token ? () => (dragImg.current = index) : null
+                        }
+                        onDragEnter={
+                            token
+                                ? () => (draggedOverImg.current = index)
+                                : null
+                        }
+                        onDragEnd={token ? handleSort : null}
+                        onDragOver={token ? (e) => e.preventDefault() : null}
                     >
                         <LazyLoadImage
-                            src={image}
-                            alt={category}
+                            src={image.image}
+                            alt={image.category}
                             className="rounded-lg h-full w-full"
                             effect="blur"
                             height={420}
@@ -25,7 +45,7 @@ const ImageDisplay = ({ filtered }) => {
                         />
 
                         <button className="absolute top-2 left-2 text-white bg-gray-500/50 px-1.5 rounded-lg">
-                            {category}
+                            {image.category}
                         </button>
                     </div>
                 );
