@@ -15,7 +15,7 @@ const Header = ({ searchInput, searchByTag, token }) => {
             </h1>
 
             <input
-                className="flex-1 border border-gray-400 px-2 py-1 rounded-md md:px-10 focus:outline-none focus:shadow-lg w-full"
+                className="flex-1 bg-transparent border border-gray-400 px-2 py-1 rounded-md md:px-10 focus:outline-none focus:shadow-lg w-full"
                 name="search"
                 value={searchInput}
                 type="text"
