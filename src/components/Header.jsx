@@ -5,7 +5,7 @@ import { FaImages } from "react-icons/fa";
 const Header = ({ searchInput, searchByTag, token }) => {
     return (
         <header
-            className={`flex items-center justify-between py-3 px-5 md:px-10 ${
+            className={`sticky top-0 z-10 bg-neutral-50 flex items-center justify-between py-3 px-5 md:px-10 ${
                 token ? "gap-5" : "gap-6"
             } md:gap-44 mb-5 w-full`}
         >
