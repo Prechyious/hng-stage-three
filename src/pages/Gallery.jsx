@@ -46,7 +46,7 @@ const Gallery = ({ token }) => {
     };
 
     return (
-        <div className="bg-neutral-100">
+        <div>
             <Header
                 searchByTag={searchByTag}
                 searchInput={searchInput}
