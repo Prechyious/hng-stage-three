@@ -57,7 +57,7 @@ const LogInForm = ({ setToken, closeModal }) => {
                     <ScaleLoader color="#fff" height={30} />
                 </div>
             ) : (
-                <div className="flex flex-col gap-4 items-center font-medium shadow-lg p-5 md:p-10 rounded-2xl bg-white max-w-[15.5rem] sm:max-w-[17.5rem] md:max-w-md">
+                <div className="flex flex-col gap-4 items-center font-medium shadow-lg p-5 md:p-10 rounded-2xl bg-white max-w-[17rem] sm:max-w-[17.5rem] md:max-w-md">
                     <div className="flex flex-col items-center text-slate-700">
                         <h3 className="text-xl font-semibold md:text-2xl items-center">
                             Welcome
@@ -75,7 +75,7 @@ const LogInForm = ({ setToken, closeModal }) => {
                                 <FaUser className="text-slate-600" />
                             </label>
                             <input
-                                className={`w-full border py-1 px-6 rounded-lg text-slate-600 outline-none focus:outline-none focus:shadow-md focus:shadow-slate-400/50  ${
+                                className={`w-full border py-1.5 px-6 rounded-lg text-slate-600 outline-none focus:outline-none focus:shadow-md focus:shadow-slate-400/50 text-sm md:text-base ${
                                     hasSubmitted && error
                                         ? "border-rose-600 text-rose-600"
                                         : " border-slate-400"
@@ -102,7 +102,7 @@ const LogInForm = ({ setToken, closeModal }) => {
                                 <FaLock className="text-slate-600" />
                             </label>
                             <input
-                                className={`w-full border py-1 px-6 rounded-lg text-slate-600 outline-none focus:outline-none focus:shadow-md focus:shadow-slate-400/50  ${
+                                className={`w-full border py-1.5 px-6 rounded-lg text-slate-600 outline-none focus:outline-none focus:shadow-md focus:shadow-slate-400/50 text-sm md:text-base ${
                                     hasSubmitted && error
                                         ? "border-rose-600 text-rose-600"
                                         : "border-slate-400 "

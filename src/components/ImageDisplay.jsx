@@ -38,7 +38,7 @@ const ImageDisplay = ({ filtered, setFiltered, token }) => {
                         <LazyLoadImage
                             src={image.image}
                             alt={image.category}
-                            className="rounded-lg h-full w-full"
+                            className="rounded-lg"
                             effect="blur"
                             height={420}
                             width={300}
