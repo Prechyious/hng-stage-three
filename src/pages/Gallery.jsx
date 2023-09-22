@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import ImageDisplay from "../components/ImageDisplay";
 import { Data } from "../data/imagesData";
 
-const Gallery = ({ token }) => {
+const Gallery = ({ token, setToken }) => {
     const [images, setImages] = useState([]);
     const [searchInput, setSearchInput] = useState("");
 
@@ -51,6 +51,7 @@ const Gallery = ({ token }) => {
                 searchByTag={searchByTag}
                 searchInput={searchInput}
                 token={token}
+                setToken={setToken}
             />
             {isLoading && (
                 <div className="flex items-center justify-center h-[60dvh] md:h-[80dvh]">

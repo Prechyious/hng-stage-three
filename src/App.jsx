@@ -19,10 +19,9 @@ const App = () => {
     return (
         <>
             <Routes>
-                <Route path="/" element={<Gallery token={token} />} />
                 <Route
-                    path="/login"
-                    element={<LogInForm setToken={setToken} />}
+                    path="/"
+                    element={<Gallery token={token} setToken={setToken} />}
                 />
             </Routes>
         </>
