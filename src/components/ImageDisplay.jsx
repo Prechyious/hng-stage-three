@@ -44,7 +44,7 @@ const ImageDisplay = ({ filtered, setFiltered, token }) => {
                             width={300}
                         />
 
-                        <button className="absolute top-2 left-2 text-white bg-gray-500/50 px-1.5 rounded-lg">
+                        <button className="absolute top-3 left-2 text-white bg-gray-500/50 px-2 rounded-lg capitalize text-sm md:text-base font-medium">
                             {image.category}
                         </button>
                     </div>
