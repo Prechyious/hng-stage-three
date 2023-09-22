@@ -20,7 +20,7 @@ const ImageDisplay = ({ filtered, setFiltered, token }) => {
                 return (
                     <div
                         key={image.id}
-                        className={`relative h-[420px] w-[300px] shadow-lg hover:shadow-neutral-500 rounded-lg overflow-hidden transition-all duration-500 ease-in-out ${
+                        className={`relative h-[380px] w-[260px] md:h-[420px] md:w-[300px] shadow-lg hover:shadow-neutral-500 rounded-lg overflow-hidden transition-all duration-500 ease-in-out ${
                             token && "cursor-move"
                         }`}
                         draggable={!!token}

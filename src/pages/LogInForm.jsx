@@ -57,10 +57,14 @@ const LogInForm = ({ setToken, closeModal }) => {
                     <ScaleLoader color="#fff" height={30} />
                 </div>
             ) : (
-                <div className="flex flex-col gap-4 items-center font-medium shadow-lg p-5 md:p-10 rounded-2xl bg-white max-w-[17.5rem] md:max-w-md">
+                <div className="flex flex-col gap-4 items-center font-medium shadow-lg p-5 md:p-10 rounded-2xl bg-white max-w-[15.5rem] sm:max-w-[17.5rem] md:max-w-md">
                     <div className="flex flex-col items-center text-slate-700">
-                        <h3 className="text-2xl items-center">Welcome</h3>
-                        <p>Please login to continue</p>
+                        <h3 className="text-xl font-semibold md:text-2xl items-center">
+                            Welcome
+                        </h3>
+                        <p className="text-sm md:text-base">
+                            Please login to continue
+                        </p>
                     </div>
                     <form
                         className="flex flex-col gap-4"

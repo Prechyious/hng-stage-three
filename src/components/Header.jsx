@@ -16,12 +16,12 @@ const Header = ({ searchInput, searchByTag, token, setToken }) => {
 
     return (
         <header
-            className={`sticky top-0 z-10 bg-neutral-50 flex items-center justify-between py-3 px-5 md:px-10 ${
-                token ? "gap-5" : "gap-4"
+            className={`sticky top-0 z-10 bg-neutral-50 flex items-center justify-between py-3 px-3 md:px-10 ${
+                token ? "gap-5" : "gap-2"
             } md:gap-44 mb-5 w-full`}
         >
-            <h1 className="font-bold text-base md:text-xl tracking-wide text-slate-800 flex items-center gap-2">
-                <FaImages size={25} className="text-slate-600" />
+            <h1 className="font-bold text-base md:text-xl tracking-wide text-slate-800 flex items-center gap-1 md:gap-2">
+                <FaImages className="text-slate-600 text-xl md:text-2xl" />
                 Gallery
             </h1>
 
