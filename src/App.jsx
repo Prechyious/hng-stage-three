@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import Gallery from "./pages/Gallery";
-import LogInForm from "./pages/LogInForm";
 import { useEffect, useState } from "react";
 
 const App = () => {

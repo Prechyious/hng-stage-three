@@ -50,16 +50,26 @@ const LogInForm = ({ setToken, closeModal }) => {
         setError(err);
     };
 
+    const setDemoUser = () => {
+        setEmail("user@example.com");
+        setPassword("1Password");
+    };
+
+    console.log({
+        email,
+        password,
+    });
+
     return (
         <div className="h-[100dvh] flex flex-col items-center justify-center w-full z-10 ">
             {isLoading ? (
-                <div className="flex items-center justify-center z-10">
+                <div className="z-10 flex items-center justify-center">
                     <ScaleLoader color="#fff" height={30} />
                 </div>
             ) : (
                 <div className="flex flex-col gap-4 items-center font-medium shadow-lg p-5 md:p-10 rounded-2xl bg-white max-w-[17rem] sm:max-w-[17.5rem] md:max-w-md">
                     <div className="flex flex-col items-center text-slate-700">
-                        <h3 className="text-xl font-semibold md:text-2xl items-center">
+                        <h3 className="items-center text-xl font-semibold md:text-2xl">
                             Welcome
                         </h3>
                         <p className="text-sm md:text-base">
@@ -70,7 +80,7 @@ const LogInForm = ({ setToken, closeModal }) => {
                         className="flex flex-col gap-4"
                         onSubmit={handleLogin}
                     >
-                        <div className="flex items-center relative">
+                        <div className="relative flex items-center">
                             <label htmlFor="email" className="absolute left-1">
                                 <FaUser className="text-slate-600" />
                             </label>
@@ -94,7 +104,7 @@ const LogInForm = ({ setToken, closeModal }) => {
                                     Please enter a valid email
                                 </p>
                             )}
-                        <div className="flex items-center relative">
+                        <div className="relative flex items-center">
                             <label
                                 htmlFor="password"
                                 className="absolute left-1"
@@ -116,15 +126,20 @@ const LogInForm = ({ setToken, closeModal }) => {
                             />
                         </div>
                         {error.includes("Invalid login credentials") && (
-                            <p className=" text-rose-600 text-center">
-                                {error}
-                            </p>
+                            <p className="text-center text-rose-600">{error}</p>
                         )}
 
-                        <button className="border rounded-md py-1 bg-slate-500 text-white shadow-md hover:bg-slate-600 duration-300 font-semibold">
+                        <button className="py-1 font-semibold text-white duration-300 border rounded-md shadow-md bg-slate-500 hover:bg-slate-600">
                             Log In
                         </button>
                     </form>
+
+                    <button
+                        className="text-sm duration-300 text-slate-700 hover:text-slate-900"
+                        onClick={setDemoUser}
+                    >
+                        Demo user
+                    </button>
                 </div>
             )}
         </div>
