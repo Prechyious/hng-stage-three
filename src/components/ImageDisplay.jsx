@@ -38,7 +38,7 @@ const ImageDisplay = ({ filtered, setFiltered, token }) => {
                         <LazyLoadImage
                             src={image.image}
                             alt={image.category}
-                            className="h-full duration-300 ease-in-out rounded-lg hover:scale-105"
+                            className="h-full rounded-lg"
                             effect="blur"
                             height={400}
                             width={300}
