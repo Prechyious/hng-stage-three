@@ -15,7 +15,7 @@ const ImageDisplay = ({ filtered, setFiltered, token }) => {
         setFiltered(filteredClone);
     };
     return (
-        <main className="grid grid-cols-1 gap-10 px-5 mb-10 place-items-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:px-10">
+        <main className="grid grid-cols-1 gap-10 px-5 mb-10 sm:px-10 place-items-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:px-10">
             {filtered.map((image, index) => {
                 return (
                     <div
@@ -38,15 +38,15 @@ const ImageDisplay = ({ filtered, setFiltered, token }) => {
                         <LazyLoadImage
                             src={image.image}
                             alt={image.category}
-                            className="h-full rounded-lg"
+                            className="h-full duration-300 ease-in-out rounded-lg hover:scale-105"
                             effect="blur"
                             height={400}
                             width={300}
                         />
 
-                        <button className="absolute px-2 text-sm font-medium text-white capitalize rounded-lg top-3 left-2 bg-gray-500/50 md:text-base">
+                        <h2 className="absolute px-2 text-sm font-medium text-white capitalize rounded-lg top-3 left-2 bg-gray-500/50 md:text-base">
                             {image.category}
-                        </button>
+                        </h2>
                     </div>
                 );
             })}
